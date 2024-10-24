@@ -1,0 +1,81 @@
+distributed models
+consumotion c= 20 +0.7 (yprev- Tprev )
+investment I  = 2+0.1 yprev
+taxes   T =0.2y preve 
+nation income y = cprev + Iprev + G
+
+where 
+years = 1,2,3,4,5
+governmant expendityre = 30, 35,40,45,50
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+years = [ 1,2,3,4,5]
+gov_Expenditure = [30,35,40,45,50]
+n= len(years)
+i=1
+yprev = 80
+consumption = [0,0,0,0,0]
+investment = [0,0,0,0,0]
+taxes = [0,0,0,0,0]
+national_income = [0,0,0,0,0]
+
+def Consumption (yprev , tprev):
+    return(20+0.7*(yprev-tprev))
+
+def Investment (yprev):
+    return (2+ 0.1* yprev)
+
+def Taxes(yprev):
+    return (0.2 * yprev)
+
+def National_income(cprev,iprev,g):
+    return (cprev+iprev+g) 
+
+#intial parameters
+
+investment[0]= Investment(yprev=yprev)
+taxes[0]=Taxes(yprev=yprev)
+consumption[0]= Consumption(yprev=yprev,tprev=taxes[0])
+national_income[0]= National_income(consumption[0],investment[0],gov_Expenditure[0])
+
+
+
+
+while(i<n):
+    investment[i]= Investment(yprev=national_income[i-1])
+    taxes[i]=Taxes(yprev=
+    national_income[i-1])
+    consumption[i]= 
+    Consumption(yprev=
+    national_income[i-1],tprev=taxes[i-1])
+    national_income[i]= 
+    National_income(consumption[i-1],
+    investment[i-1],gov_Expenditure[i])
+    i+=1
+
+
+# i=0
+# while(i<n):
+#     print(years[i],gov_Expenditure[i],consumption[i],investment[i],taxes[i],national_income[i])
+#     i+=1
+
+#plotiting
+
+plt.figure(figsize=(10,6))
+
+plt.plot(years,national_income,
+label='national income')
+plt.title('plot of national icome 
+using distribution model')
+plt.xlabel('years')
+plt.ylabel('National income')
+plt.legend()
+plt.grid(True)
+plt.show()
+

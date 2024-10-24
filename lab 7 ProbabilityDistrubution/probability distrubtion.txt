@@ -1,0 +1,98 @@
+'''
+1 coin toss 
+    sample space ={h,t}
+    let x be a random variable
+    x= getting heads
+    p(x)=1/2
+
+2 conin toss 
+    sample space={hh,th,ht,tt}
+    p(x=1)=3/4 as 3 of the ss contain head 
+
+3 coin toss
+    sample space = {hhh,hht,hth,htt,thh,tht,tth,ttt}
+    p(x=1)=7/8 #at least 1
+
+    p(x=0)=1/8
+
+
+    enter number of toss n
+    probrlity is 0 to 100
+    create sample space
+    and plot discreete probability 
+
+'''
+# #we are exploting the feature of bianry logic of the  head = 1 and tail=0
+# #So, for n number of toss, it will have 2^n sample space and each humber from 0 to 2^n
+# #it will have a binary number with ceratin heads and tails
+# eg, for 4 number of toss the number 5's binary number will be 0101 we can see that it has 2 number of heads
+# i.e. 5 repeesnts a case where THTH came 
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+n= int(input('enter number of tosses'))
+
+numOfSample = 2**n
+sampleSpcae = [0]*numOfSample
+numOfHead = [0]*numOfSample
+exactlyX = [0]*(n+1)
+probExactX= [1.0]*(n+1)
+xAxis = [0]*(n+1)
+
+
+
+def countHead(num):
+    one=0
+    while(1):
+        temp = num % 2
+        if ( temp == 1): one+=1
+        num = int(num/2)
+        if (num == 0 ):break
+    
+    return one
+
+
+#intilize sample space 
+index =0
+for i in sampleSpcae:
+    sampleSpcae[index]=index
+    index +=1
+
+#calcluate numer of heads of each sample
+index=0
+for i in sampleSpcae:
+    numOfHead[index]=countHead(sampleSpcae[index])
+    index+=1
+
+#count the possible cases 
+index = 0
+for i in numOfHead:
+    exactlyX[numOfHead[index]]+=1
+    index+=1
+
+#calculating probabilites of each cases
+index = 0
+for i in exactlyX:
+    xAxis[index]=index
+    probExactX[index]=   (exactlyX[index])/numOfSample
+    index+=1
+
+# print(exactlyX)
+# print(probExactX)
+
+
+#ploting
+plt.figure(figsize=(10,6))
+
+plt.bar(xAxis, probExactX,color='blue',width=0.5)
+title = f'probability distribution of tossing coin {n} times'
+plt.title(title)
+plt.xlabel('X')
+plt.ylabel('P(X)')
+plt.grid(False)
+plt.show()
+
+

@@ -1,0 +1,67 @@
+==========================================QUESTION=================
+Consider a factory that manufactures football taking 20 to 40 minutes. The ball is moved 
+from the generation to the inspection machine taking a 2 minutes. There are 3 inspection machine 
+at one place and need 30 to 60 minutes for inspection and reject 30% of football. Simulate for 1000 
+transaction . Draw GPSS block diagram to simulate this system.
+
+
+solution:
+Here, Manufacture of football takes 20 to 40 minutes so, 
+mean = (20+40)/2 =30
+Generate = 30±10
+product take 2 minutes to reach for inspection i.e. ADVANCE = 2, and for inspection 
+it take 30 to 60 minutes, 
+mean = (30+60)/2 = 45
+ADVANCE = 45±15
+
+========================GPSS CODE===================================
+
+GENERATE 30,10     ; Create parts
+ADVANCE 2,0        ; To Inspect
+SEIZE Barber       ; Get an Inspector
+ADVANCE 45,15      ; Inspect
+ RELEASE Barber        ; Free Inspector
+TRANSFER 0.3,ACC,REJ ; Select Reject
+ACC TERMINATE 1    ; Accepted parts
+REJ TERMINATE 1    ; Rejected parts
+
+START 2000         ; Run 2000 parts
+
+==========================================result=======================================
+
+              GPSS World Simulation Report - Untitled Model 7.13.1
+
+
+                   Sunday, June 30, 2024 12:29:21  
+
+           START TIME           END TIME  BLOCKS  FACILITIES  STORAGES
+                0.000          90361.371     8        1          0
+
+
+              NAME                       VALUE  
+          ACC                             7.000
+          BARBER                      10000.000
+          REJ                             8.000
+
+
+ LABEL              LOC  BLOCK TYPE     ENTRY COUNT CURRENT COUNT RETRY
+                    1    GENERATE          3026             0       0
+                    2    ADVANCE           3026          1025       0
+                    3    SEIZE             2001             1       0
+                    4    ADVANCE           2000             0       0
+                    5    RELEASE           2000             0       0
+                    6    TRANSFER          2000             0       0
+ACC                 7    TERMINATE         1414             0       0
+REJ                 8    TERMINATE          586             0       0
+
+
+FACILITY         ENTRIES  UTIL.   AVE. TIME AVAIL. OWNER PEND INTER RETRY DELAY
+ BARBER            2001    1.000      45.139  1     2001    0    0     0   1025
+
+
+CEC XN   PRI          M1      ASSEM  CURRENT  NEXT  PARAMETER    VALUE
+  2001    0       59337.041   2001      3      4
+
+
+FEC XN   PRI         BDT      ASSEM  CURRENT  NEXT  PARAMETER    VALUE
+  3027    0       90388.134   3027      0      1

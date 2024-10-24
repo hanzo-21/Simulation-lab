@@ -1,0 +1,5 @@
+lab 1: ER diagram(safe home system), swimlane Diagram (safe home system)
+
+lab 2: sequnce diagram(safe home system), class diagram(home security system) , dataflow diagram(movie ticket booking system)
+
+lab 3: dataflow diagram level 0,1,2 (Library management system), state transition diagram (ATM system), use case diagram (ATM system)

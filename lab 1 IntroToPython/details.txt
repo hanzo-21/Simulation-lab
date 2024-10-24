@@ -1,0 +1,59 @@
+Intro to pythyon
+-operation
+-control starement
+
+1) diplay there is " print("hello world")
+                    print('hello world') // also valid
+
+2) how to get input
+        input()
+                eg: a=input("enter a number") // by defalut it is in string but new on might be 
+3) comment
+    #this is used to comment
+4)pythyon variables 
+5)casting variables 
+    int() will conver into string
+
+
+    elements can be repeted in list but not in set 
+
+
+integer, float, complex
+
+opreator
+
++ - * / % //(floor division) **(exponetial)
+
+realtionla opreator
+== !=(NOT) < > <= >= 
+
+logical
+and or not
+
+assignment opreator
+= += -= *= /= %= //= **=
+
+idenitity opreator
+is, is not
+
+memmber opreator
+in, not in
+
+bitwise opearotr
+
+
+
+python list characterstics
+    mutable : cannot be chaged
+    ordered: maintain order as they are inserted
+    dynamic
+    heterogeneous elements
+
+
+characterstics of tuplets
+    immutable : cannot be chaged
+    ordered: maintain order as they are inserted
+    heterogeneous elements
+    preformances 
+characterstics of set
+    
