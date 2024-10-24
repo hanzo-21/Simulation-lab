@@ -1,0 +1,4 @@
+Hello! Maker here.
+this is all the lab work done in simulation for my 7th sem.
+most of the work is doene in jupiter except GPSS
+I have tried to be detailed but if any problem please raise the issue.
